@@ -47,7 +47,7 @@ def start_audio_stream():
 ######################################################### GUI #####################################################################
 
 window = tk.Tk()
-window.title("LinkUp")
+window.title("Zoom clone")
 window.geometry('300x200') #size of window
 
 ################# Adding elements in window for users window ################### 
