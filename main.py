@@ -52,6 +52,7 @@ def start_audio_stream():
 ######################################################### GUI #####################################################################
 
 window = tk.Tk()
+window = customtkinter.CTk()
 window.title("Zoom clone")
 window.geometry('300x200') #size of window
 
@@ -61,24 +62,24 @@ label_target_ip = tk.Label(window, text = "Target IP:")
 label_target_ip.pack()
 
 #creating a text box to add the IP address
-text_target_ip = tk.Text(window, height=1)
-text_target_ip.pack()
+entry1 = customtkinter.CTkEntry(window, height=1, placeholder_text = "Enter your IP address:")
+entry1.pack(expand = True)
 
 #creating a button which says: start listing to incoming connections
-btn_listen = tk.Button(window, text="Start Listening", width=50, command = start_listening)
-btn_listen.pack(anchor=tk.CENTER, expand=True)
+btn_listen = customtkinter.CTkButton(window, text="Start Listening", width=50, command = start_listening)
+btn_listen.pack(anchor=customtkinter.CENTER, expand=True)
 
 #Creating a button for camera
-btn_camera = tk.Button(window, text="Start Camera Stream", width=50, command = start_camera_stream)
-btn_camera.pack(anchor=tk.CENTER, expand=True)
+btn_camera = customtkinter.CTkButton(window, text="Start Camera Stream", width=50, command = start_camera_stream)
+btn_camera.pack(anchor=customtkinter.CENTER, expand=True)
 
 #creating a button for screen sharing 
-btn_screen = tk.Button(window, text="Start Screen Sharing", width=50, command = start_screen_sharing)
-btn_screen.pack(anchor=tk.CENTER, expand=True)
+btn_screen = customtkinter.CTkButton(window, text="Start Screen Sharing", width=50, command = start_screen_sharing)
+btn_screen.pack(anchor=customtkinter.CENTER, expand=True)
 
 #creating a button for audio streaming
-btn_audio = tk.Button(window, text="Start Audio Stream", width=50, command = start_audio_stream)
-btn_audio.pack(anchor=tk.CENTER, expand=True)
+btn_audio = customtkinter.CTkButton(window, text="Start Audio Stream", width=50, command = start_audio_stream)
+btn_audio.pack(anchor=customtkinter.CENTER, expand=True)
 
 window.mainloop()
 
