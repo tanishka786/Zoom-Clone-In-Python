@@ -13,7 +13,7 @@ local_ip_address = socket.gethostbyname(socket.gethostname())
 ######################################################### GUI #####################################################################
 
 window = tk.Tk()
-window.title("LinkUpNow")
+window.title("LinkUp")
 window.geometry('300x200') #size of window
 
 ################# Adding elements in window for users window ################### 
