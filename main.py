@@ -4,6 +4,11 @@ from vidstream import * #used to stream video over a network
 import tkinter as tk #used to construct basic graphical user interface (GUI) application
 import socket # used to send and receive data, and they can be used to create both client-server and peer-to-peer applications
 import threading #allows you to have different parts of your process run concurrently (for audio and video simultaneously)
+import customtkinter # create modern looking user interfaces in python with tkinter
+
+#customizing the background theme LEFT PROGRAMMING $$$$$$$$$$$$
+customtkinter.set_appearance_mode("dark")
+customtkinter.set_default_color_theme("dark-blue")
 
 # to get IP address from Python (Private IP address )
 local_ip_address = socket.gethostbyname(socket.gethostname())
@@ -52,7 +57,7 @@ window.geometry('300x200') #size of window
 
 ################# Adding elements in window for users window ################### 
 
-label_target_ip = tk.Label(window, text="Target IP:")
+label_target_ip = tk.Label(window, text = "Target IP:")
 label_target_ip.pack()
 
 #creating a text box to add the IP address
