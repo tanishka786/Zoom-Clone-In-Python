@@ -60,18 +60,17 @@ window.geometry('300x200') #size of window
 #icon = ctk.CTkImage(image = "logo.jpg")
 #window._windows_set_titlebar_icon(icon)
 
-
 frame = ctk.CTkFrame(master = window)
 frame.pack(pady = 10, padx = 30, fill = "both", expand=True)
 
 ################# Adding elements in window for users window ################### 
 
-label_target_ip = ctk.CTkLabel(master = frame, text = "Target IP:")
+label_target_ip = ctk.CTkLabel(master = frame, text = "Target IP:", text_color = "DarkCyan" )
 label_target_ip.pack()
 
 #creating a text box to add the IP address
 enter_ip = ctk.CTkEntry(master = frame, height=1, placeholder_text = "Enter your IP address:")
-enter_ip.pack(expand = True)
+enter_ip.pack( expand = True)
 
 #creating a button which says: start listing to incoming connections
 btn_listen = ctk.CTkButton(master = frame, text="Start Listening", width=50, command = start_listening)
