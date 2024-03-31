@@ -32,53 +32,56 @@ def start_listening():
 
 #adding function for video
 def start_camera_stream():
-    camera_client = CameraClient(entry1.get(1.0,'end-1c'), 7777)
+    camera_client = CameraClient(enter_ip.get(1.0,'end-1c'), 7777)
     t3 = threading.Thread(target = camera_client.start_stream)
     t3.start()
 
 #adding function for screen sharing
 def start_screen_sharing():
-    screen_client = ScreenShareClient(entry1.get(1.0,'end-1c'), 7777)
+    screen_client = ScreenShareClient(enter_ip.get(1.0,'end-1c'), 7777)
     t4 = threading.Thread(target = screen_client.start_stream)
     t4.start()
 
 #adding function for audio streaming
 def start_audio_stream():
-    audio_sender = AudioSender(entry1.get(1.0,'end-1c'), 6666)
+    audio_sender = AudioSender(enter_ip.get(1.0,'end-1c'), 6666)
     t5 = threading.Thread(target = audio_sender.start_stream)
     t5.start()
 
-
 ######################################################### GUI #####################################################################
 
-window = tk.Tk()
 window = customtkinter.CTk()
-window.title("Zoom clone")
+window.title("Zoom clone") #title of window
 window.geometry('300x200') #size of window
+
+
+
+frame = customtkinter.CTkFrame(master = window)
+frame.pack(pady = 10, padx = 30, fill = "both", expand=True)
 
 ################# Adding elements in window for users window ################### 
 
-label_target_ip = tk.Label(window, text = "Target IP:")
+label_target_ip = customtkinter.CTkLabel(master = frame, text = "Target IP:")
 label_target_ip.pack()
 
 #creating a text box to add the IP address
-entry1 = customtkinter.CTkEntry(window, height=1, placeholder_text = "Enter your IP address:")
-entry1.pack(expand = True)
+enter_ip = customtkinter.CTkEntry(master = frame, height=1, placeholder_text = "Enter your IP address:")
+enter_ip.pack(expand = True)
 
 #creating a button which says: start listing to incoming connections
-btn_listen = customtkinter.CTkButton(window, text="Start Listening", width=50, command = start_listening)
+btn_listen = customtkinter.CTkButton(master = frame, text="Start Listening", width=50, command = start_listening)
 btn_listen.pack(anchor=customtkinter.CENTER, expand=True)
 
 #Creating a button for camera
-btn_camera = customtkinter.CTkButton(window, text="Start Camera Stream", width=50, command = start_camera_stream)
+btn_camera = customtkinter.CTkButton(master = frame, text="Start Camera Stream", width=50, command = start_camera_stream)
 btn_camera.pack(anchor=customtkinter.CENTER, expand=True)
 
 #creating a button for screen sharing 
-btn_screen = customtkinter.CTkButton(window, text="Start Screen Sharing", width=50, command = start_screen_sharing)
+btn_screen = customtkinter.CTkButton(master = frame, text="Start Screen Sharing", width=50, command = start_screen_sharing)
 btn_screen.pack(anchor=customtkinter.CENTER, expand=True)
 
 #creating a button for audio streaming
-btn_audio = customtkinter.CTkButton(window, text="Start Audio Stream", width=50, command = start_audio_stream)
+btn_audio = customtkinter.CTkButton(master = frame, text="Start Audio Stream", width=50, command = start_audio_stream)
 btn_audio.pack(anchor=customtkinter.CENTER, expand=True)
 
 window.mainloop()
