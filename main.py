@@ -4,11 +4,11 @@ from vidstream import * #used to stream video over a network
 import tkinter as tk #used to construct basic graphical user interface (GUI) application
 import socket # used to send and receive data, and they can be used to create both client-server and peer-to-peer applications
 import threading #allows you to have different parts of your process run concurrently (for audio and video simultaneously)
-import customtkinter # create modern looking user interfaces in python with tkinter
+import customtkinter  as ctk # create modern looking user interfaces in python with tkinter
 
 #customizing the background theme LEFT PROGRAMMING $$$$$$$$$$$$
-customtkinter.set_appearance_mode("dark")
-customtkinter.set_default_color_theme("dark-blue")
+ctk.set_appearance_mode("dark")
+ctk.set_default_color_theme("dark-blue")
 
 # to get IP address from Python (Private IP address )
 local_ip_address = socket.gethostbyname(socket.gethostname())
@@ -51,41 +51,43 @@ def start_audio_stream():
 ######################################################### GUI #####################################################################
 
 window = tk.Tk()
-window = customtkinter.CTk()
+window = ctk.CTk()
 window.title("Zoom clone") #title of window
 window.geometry('300x200') #size of window
 
-#adding an icon in window bar
-icon = tk.PhotoImage(file = 'C:\Users\TANISHKA\Desktop\MU SEM\SE SM\SEM 4\SBL-Python\Zoom Clone\assets')
-window.iconphoto(True, icon)
+#@@@@@@@@@@@@ NEED TO ADD ICON I WINDOW @@@@@@@@@@@@@
+#adding an icon in window bar $$$$$$$$$ NOT WORKING MAKE IT WORK!!!!!!!
+#icon = ctk.CTkImage(image = "logo.jpg")
+#window._windows_set_titlebar_icon(icon)
 
-frame = customtkinter.CTkFrame(master = window)
+
+frame = ctk.CTkFrame(master = window)
 frame.pack(pady = 10, padx = 30, fill = "both", expand=True)
 
 ################# Adding elements in window for users window ################### 
 
-label_target_ip = customtkinter.CTkLabel(master = frame, text = "Target IP:")
+label_target_ip = ctk.CTkLabel(master = frame, text = "Target IP:")
 label_target_ip.pack()
 
 #creating a text box to add the IP address
-enter_ip = customtkinter.CTkEntry(master = frame, height=1, placeholder_text = "Enter your IP address:")
+enter_ip = ctk.CTkEntry(master = frame, height=1, placeholder_text = "Enter your IP address:")
 enter_ip.pack(expand = True)
 
 #creating a button which says: start listing to incoming connections
-btn_listen = customtkinter.CTkButton(master = frame, text="Start Listening", width=50, command = start_listening)
-btn_listen.pack(anchor=customtkinter.CENTER, expand=True)
+btn_listen = ctk.CTkButton(master = frame, text="Start Listening", width=50, command = start_listening)
+btn_listen.pack(anchor=ctk.CENTER, expand=True)
 
 #Creating a button for camera
-btn_camera = customtkinter.CTkButton(master = frame, text="Start Camera Stream", width=50, command = start_camera_stream)
-btn_camera.pack(anchor=customtkinter.CENTER, expand=True)
+btn_camera = ctk.CTkButton(master = frame, text="Start Camera Stream", width=50, command = start_camera_stream)
+btn_camera.pack(anchor=ctk.CENTER, expand=True)
 
 #creating a button for screen sharing 
-btn_screen = customtkinter.CTkButton(master = frame, text="Start Screen Sharing", width=50, command = start_screen_sharing)
-btn_screen.pack(anchor=customtkinter.CENTER, expand=True)
+btn_screen = ctk.CTkButton(master = frame, text="Start Screen Sharing", width=50, command = start_screen_sharing)
+btn_screen.pack(anchor=ctk.CENTER, expand=True)
 
 #creating a button for audio streaming
-btn_audio = customtkinter.CTkButton(master = frame, text="Start Audio Stream", width=50, command = start_audio_stream)
-btn_audio.pack(anchor=customtkinter.CENTER, expand=True)
+btn_audio = ctk.CTkButton(master = frame, text="Start Audio Stream", width=50, command = start_audio_stream)
+btn_audio.pack(anchor=ctk.CENTER, expand=True)
 
 window.mainloop()
 
