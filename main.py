@@ -50,11 +50,14 @@ def start_audio_stream():
 
 ######################################################### GUI #####################################################################
 
+window = tk.Tk()
 window = customtkinter.CTk()
 window.title("Zoom clone") #title of window
 window.geometry('300x200') #size of window
 
-
+#adding an icon in window bar
+icon = tk.PhotoImage(file = 'C:\Users\TANISHKA\Desktop\MU SEM\SE SM\SEM 4\SBL-Python\Zoom Clone\assets')
+window.iconphoto(True, icon)
 
 frame = customtkinter.CTkFrame(master = window)
 frame.pack(pady = 10, padx = 30, fill = "both", expand=True)
