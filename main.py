@@ -6,7 +6,7 @@ import socket # used to send and receive data, and they can be used to create bo
 import threading #allows you to have different parts of your process run concurrently (for audio and video simultaneously)
 import customtkinter  as ctk # create modern looking user interfaces in python with tkinter
 
-#customizing the background theme LEFT PROGRAMMING $$$$$$$$$$$$
+#customizing the background theme 
 ctk.set_appearance_mode("dark")
 ctk.set_default_color_theme("dark-blue")
 
@@ -28,8 +28,7 @@ def start_listening():
     t2 = threading.Thread(target = receiver.start_server)
     t1.start()
     t2.start()
-
-
+    
 #adding function for video
 def start_camera_stream():
     camera_client = CameraClient(enter_ip.get(1.0,'end-1c'), 7777)
@@ -51,7 +50,7 @@ def start_audio_stream():
 ######################################################### GUI #####################################################################
 
 window = tk.Tk()
-window = ctk.CTk()
+window = ctk.CTk() 
 window.title("Zoom clone") #title of window
 window.geometry('300x200') #size of window
 
@@ -65,12 +64,12 @@ frame.pack(pady = 10, padx = 30, fill = "both", expand=True)
 
 ################# Adding elements in window for users window ################### 
 
-label_target_ip = ctk.CTkLabel(master = frame, text = "Target IP:", text_color = "DarkCyan" )
+label_target_ip = ctk.CTkLabel(master = frame, text = "Hello!! 👋🏻", text_color = "DarkCyan" )
 label_target_ip.pack()
 
 #creating a text box to add the IP address
-enter_ip = ctk.CTkEntry(master = frame, height=1, placeholder_text = "Enter your IP address:")
-enter_ip.pack( expand = True)
+enter_ip = ctk.CTkEntry(master = frame, height=1, placeholder_text = "Recipient's IP address:")
+enter_ip.pack(anchor=ctk.CENTER, expand = True)
 
 #creating a button which says: start listing to incoming connections
 btn_listen = ctk.CTkButton(master = frame, text="Start Listening", width=50, command = start_listening)
@@ -89,6 +88,8 @@ btn_audio = ctk.CTkButton(master = frame, text="Start Audio Stream", width=50, c
 btn_audio.pack(anchor=ctk.CENTER, expand=True)
 
 window.mainloop()
+
+  
 
 
 
