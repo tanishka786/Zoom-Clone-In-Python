@@ -89,7 +89,8 @@ btn_audio.pack(anchor=ctk.CENTER, expand=True)
 
 window.mainloop()
 
-  
-
-
-
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ THings to be done: @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+# add icon to window bar
+# add screenSharing work
+# add a stop sharing button
+# add a stop button to exit conversation
