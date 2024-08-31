@@ -5,20 +5,26 @@ import tkinter as tk #used to construct basic graphical user interface (GUI) app
 import socket # used to send and receive data, and they can be used to create both client-server and peer-to-peer applications
 import threading #allows you to have different parts of your process run concurrently (for audio and video simultaneously)
 import customtkinter  as ctk # create modern looking user interfaces in python with tkinter
+import requests
 
 #customizing the background theme 
 ctk.set_appearance_mode("dark")
 ctk.set_default_color_theme("dark-blue")
 
 # to get IP address from Python (Private IP address )
-local_ip_address = socket.gethostbyname(socket.gethostname())
-#print(local_ip_address) 
-#the above line will show the local IP address given by python.
+local_ip_addr = socket.gethostbyname(socket.gethostname())
+public_ip_addr = requests.get("https://api.ipify.org").text 
+
+
+
+#the above line will show the local IP  and public ip address given by python.
+print(local_ip_addr)
+print(public_ip_addr)
 
 ########################################## Adding functionalities to buttons created ########################################################
 
-server = StreamingServer(local_ip_address, 9999)
-receiver = AudioReceiver(local_ip_address, 8888)
+server = StreamingServer(local_ip_addr, 9999) 
+receiver = AudioReceiver(local_ip_addr, 8888)
 
 #Note: we are not calling the functions, we are just refering them so eg, start_server() is wriitrn without this '()'
 
@@ -49,15 +55,10 @@ def start_audio_stream():
 
 ######################################################### GUI #####################################################################
 
-window = tk.Tk()
 window = ctk.CTk() 
 window.title("Zoom clone") #title of window
 window.geometry('300x200') #size of window
 
-#@@@@@@@@@@@@ NEED TO ADD ICON I WINDOW @@@@@@@@@@@@@
-#adding an icon in window bar $$$$$$$$$ NOT WORKING MAKE IT WORK!!!!!!!
-#icon = ctk.CTkImage(image = "logo.jpg")
-#window._windows_set_titlebar_icon(icon)
 
 frame = ctk.CTkFrame(master = window)
 frame.pack(pady = 10, padx = 30, fill = "both", expand=True)
@@ -90,7 +91,6 @@ btn_audio.pack(anchor=ctk.CENTER, expand=True)
 window.mainloop()
 
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ THings to be done: @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-# add icon to window bar
 # add screenSharing work
 # add a stop sharing button
 # add a stop button to exit conversation
